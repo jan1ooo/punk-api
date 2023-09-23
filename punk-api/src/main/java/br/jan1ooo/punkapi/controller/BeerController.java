@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +21,10 @@ public class BeerController {
     @GetMapping
     public ResponseEntity<Beer[]> AllBeers(){
         return ResponseEntity.ok().body(beerService.AllBeers());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Beer[]> searchBeer(@PathVariable Long id){
+        return ResponseEntity.ok().body(beerService.searchBeer(id));
     }
 }

@@ -18,4 +18,12 @@ public class BeerService {
         log.info("Find All Beers");
         return rest.getBody();
     }
+
+    public Beer[] searchBeer(Long id){
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Beer[]> rest = restTemplate
+                .getForEntity((String.format("https://api.punkapi.com/v2/beers/%s", id)), Beer[].class);
+        log.info("Find Beer with id: " + id);
+        return rest.getBody();
+    }
 }
