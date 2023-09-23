@@ -15,7 +15,7 @@ public class BeerService {
         String URL = "https://api.punkapi.com/v2/beers";
         ResponseEntity<Beer[]> rest = restTemplate
                 .getForEntity((URL), Beer[].class);
-        log.info("Find All Beers");
+        log.info("Listando todas as cervejas");
         return rest.getBody();
     }
 
@@ -23,7 +23,7 @@ public class BeerService {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Beer[]> rest = restTemplate
                 .getForEntity((String.format("https://api.punkapi.com/v2/beers/%s", id)), Beer[].class);
-        log.info("Find Beer with id: " + id);
+        log.info("Buscando cerveja com id: " + id);
         return rest.getBody();
     }
 }
