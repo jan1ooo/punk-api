@@ -1,10 +1,13 @@
 package br.jan1ooo.punkapi.controller;
 
 import br.jan1ooo.punkapi.dto.AuthenticationDTO;
+import br.jan1ooo.punkapi.infra.security.TokenService;
+import br.jan1ooo.punkapi.model.user.LoginResponseDTO;
 import br.jan1ooo.punkapi.model.user.User;
 import br.jan1ooo.punkapi.repository.UserRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -26,11 +30,16 @@ public class AuthenticationController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.username(), data.password());
         var auth = authenticationManager.authenticate(usernamePassword);
-        return ResponseEntity.ok().build();
+        var token = tokenService.generateToken((User)auth.getPrincipal());
+        log.info("Usuario " + data.username() + " realizou um login");
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
@@ -40,6 +49,7 @@ public class AuthenticationController {
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
         User newUser = new User(data.username(), encryptedPassword);
         this.userRepository.save(newUser);
+        log.warn("Novo usuario registrado com username " + data.username());
         return ResponseEntity.ok().build();
     }
 
