@@ -1,4 +1,4 @@
-package br.jan1ooo.punkapi.model.beer.ingredients;
+package br.jan1ooo.punkapi.domain.model.beer.ingredients;
 
 import lombok.Getter;
 import lombok.Setter;

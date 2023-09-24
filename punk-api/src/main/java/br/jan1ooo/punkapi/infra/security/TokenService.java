@@ -1,6 +1,6 @@
 package br.jan1ooo.punkapi.infra.security;
 
-import br.jan1ooo.punkapi.model.user.User;
+import br.jan1ooo.punkapi.domain.model.user.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;

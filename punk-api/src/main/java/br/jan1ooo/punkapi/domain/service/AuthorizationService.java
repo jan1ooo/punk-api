@@ -1,6 +1,6 @@
-package br.jan1ooo.punkapi.service;
+package br.jan1ooo.punkapi.domain.service;
 
-import br.jan1ooo.punkapi.repository.UserRepository;
+import br.jan1ooo.punkapi.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

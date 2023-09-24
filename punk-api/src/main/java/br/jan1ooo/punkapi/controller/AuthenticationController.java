@@ -1,10 +1,10 @@
 package br.jan1ooo.punkapi.controller;
 
-import br.jan1ooo.punkapi.dto.AuthenticationDTO;
+import br.jan1ooo.punkapi.domain.dto.AuthenticationDTO;
 import br.jan1ooo.punkapi.infra.security.TokenService;
-import br.jan1ooo.punkapi.model.user.LoginResponseDTO;
-import br.jan1ooo.punkapi.model.user.User;
-import br.jan1ooo.punkapi.repository.UserRepository;
+import br.jan1ooo.punkapi.domain.model.user.LoginResponseDTO;
+import br.jan1ooo.punkapi.domain.model.user.User;
+import br.jan1ooo.punkapi.domain.repository.UserRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +38,7 @@ public class AuthenticationController {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.username(), data.password());
         var auth = authenticationManager.authenticate(usernamePassword);
         var token = tokenService.generateToken((User)auth.getPrincipal());
-        log.info("Usuario " + data.username() + " realizou um login");
+        log.warn("Usuario " + data.username() + " realizou um login");
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 

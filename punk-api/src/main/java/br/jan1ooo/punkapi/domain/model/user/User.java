@@ -1,4 +1,4 @@
-package br.jan1ooo.punkapi.model.user;
+package br.jan1ooo.punkapi.domain.model.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

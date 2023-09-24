@@ -1,7 +1,7 @@
-package br.jan1ooo.punkapi.service;
+package br.jan1ooo.punkapi.domain.service;
 
-import br.jan1ooo.punkapi.model.user.User;
-import br.jan1ooo.punkapi.repository.UserRepository;
+import br.jan1ooo.punkapi.domain.model.user.User;
+import br.jan1ooo.punkapi.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

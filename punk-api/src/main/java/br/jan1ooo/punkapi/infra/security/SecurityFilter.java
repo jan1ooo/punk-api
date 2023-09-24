@@ -1,6 +1,6 @@
 package br.jan1ooo.punkapi.infra.security;
 
-import br.jan1ooo.punkapi.repository.UserRepository;
+import br.jan1ooo.punkapi.domain.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

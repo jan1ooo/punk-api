@@ -1,7 +1,7 @@
-package br.jan1ooo.punkapi.model.beer;
+package br.jan1ooo.punkapi.domain.model.beer;
 
-import br.jan1ooo.punkapi.model.beer.ingredients.Ingredients;
-import br.jan1ooo.punkapi.model.beer.method.Method;
+import br.jan1ooo.punkapi.domain.model.beer.ingredients.Ingredients;
+import br.jan1ooo.punkapi.domain.model.beer.method.Method;
 import lombok.Getter;
 import lombok.Setter;
 

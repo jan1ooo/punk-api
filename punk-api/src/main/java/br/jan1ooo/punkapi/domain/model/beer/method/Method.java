@@ -1,4 +1,4 @@
-package br.jan1ooo.punkapi.model.beer.method;
+package br.jan1ooo.punkapi.domain.model.beer.method;
 
 import lombok.Getter;
 import lombok.Setter;

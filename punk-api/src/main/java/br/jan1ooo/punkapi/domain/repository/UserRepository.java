@@ -1,6 +1,6 @@
-package br.jan1ooo.punkapi.repository;
+package br.jan1ooo.punkapi.domain.repository;
 
-import br.jan1ooo.punkapi.model.user.User;
+import br.jan1ooo.punkapi.domain.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
