@@ -1,43 +1,23 @@
-O teste consiste em criar uma aplicação que expõe uma API REST de um CRUD de produtos e autenticação, e uma aplicação web contendo uma interface para login e acesso a dados de uma API externa. 
-
-Depois de logado, o usuário da aplicação web deve poder acessar os dados da [Punk API v2](https://punkapi.com/). 
-
-NOTA: O front-end e back-end deve ser realizado apenas por desenvolvedores Full Stack. Caso contrário, realize o teste de acordo com sua área de atuação.
-
-NOTA 2: Não esqueça de fazer o fork do repositório.
-
 ## Back-end 💻
-- Todos os endpoints de consulta de dados devem ter autenticação por webtoken ou similar.
-- Deve existir validação dos dados recebidos pela API.
-- O CRUD não precisa de interface, apenas o login e o cadastro
 
-## Front-end 🎨
-O front-end deve atender aos seguintes requisitos:
-- Interface de login e cadastro com feedbacks para usuário ou senha incorreta.
-- Listagem dos dados da Punk API v2.
-- Responsividade.
+### 1° Passo é se registrar 
+Acesse o endereço _/auth/register_ e preencha o username e password no JSON.
 
-## Extras 🌟
-O desenvolvimento dessas features é opcional.
+![Registrar](https://user-images.githubusercontent.com/95763551/270189438-6526e94e-6182-4a8e-ba32-85b7001052b1.jpg)
 
-- Filtragem dos dados da Punk API v2 por diferentes critérios, como nome, estilo de cerveja, teor alcoólico, etc.
-- Ordenação dos dados da Punk API v2 por diferentes campos, como nome, teor alcoólico, etc.
-- Comentários e avaliações: permitir que os usuários deixem comentários e avaliações para as cervejas.
-- Dockerfile com todas as dependências.
+Após preencher o JSON, envie a requisição POST, caso concluído, receberá um mensagem de confirmação.
 
-## Critérios de avaliação ✅
-- Funcionamento do projeto.
-- Estrutura do código.
-- Uso de boas práticas.
-- Cumprimento dos requisitos mínimos.
+![Registrar2](https://user-images.githubusercontent.com/95763551/270189521-d379d8f5-a40e-4ee6-a279-8c38dbcdc9c2.jpg)
 
-## Entrega 📦
+Se tentar enviar o mesmo JSON mais de uma vez, acontece um erro pois não é permitido criar mais de um usuário com o mesmo username
 
-- Um repositório git (fork deste).
-- Um README do projeto com o passo-a-passo para executar a aplicação.
+![Regisrar3](https://user-images.githubusercontent.com/95763551/270189586-c44e3adb-bb56-44a2-85bb-289bc6057158.jpg)
 
-## Observações 📝
+### 2° Passo é fazer o login
+Acesse o endereço _/auth/login_ e preencha o JSON com o mesmo username e password registrado no 1° passo.
 
-1. Pode ser utilizado qualquer framework front-end, preprocessadores de css, task runners, bundlers, etc, de sua preferência, mas nenhum deles é de uso obrigatório.
+![Login](https://user-images.githubusercontent.com/95763551/270189836-e6f933e0-5ad6-4833-afa9-a27d8899c036.jpg)
 
-2. Não se deve fazer o commit de pastas como node_modules, o projeto deve instalar suas dependências a partir do package.json.
+Após enviar a requisição POST e o username e password estarem certos, irá retornar um toke e com este token, você irá conseguir acessar os endpoints da aplicação.
+
+![Login1](https://user-images.githubusercontent.com/95763551/270189871-cdb11b3d-c8d3-4bae-bde8-8b7eaa3a460a.jpg)
