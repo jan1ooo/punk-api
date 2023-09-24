@@ -15,14 +15,19 @@ public class BeerController {
 
     private final BeerService beerService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/id={id}")
     public ResponseEntity<Beer[]> searchBeer(@PathVariable Long id){
         return ResponseEntity.ok().body(beerService.searchBeer(id));
     }
 
-    @GetMapping("/page={page}/per_page={per_page}")
-    public ResponseEntity<Beer[]> page(@PathVariable Long page, @PathVariable Long per_page ){
-        return ResponseEntity.ok().body(beerService.page(page, per_page));
+    @GetMapping("/random")
+    public ResponseEntity<Beer[]> random(){
+        return ResponseEntity.ok().body(beerService.random());
+    }
+
+    @GetMapping("/{all}")
+    public ResponseEntity<Beer[]> all(@PathVariable String all){
+        return ResponseEntity.ok().body(beerService.all(all));
     }
 
 }

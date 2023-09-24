@@ -10,7 +10,7 @@ public class Swagger {
     public GroupedOpenApi publicApi(){
         return GroupedOpenApi.builder()
                 .group("punk-api")
-                .pathsToMatch("/api/beers/**")
+                .pathsToMatch("/api/beers/**", "/auth/**")
                 .build();
     }
 }

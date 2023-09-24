@@ -31,10 +31,8 @@ public class SecurityConfiguration {
                 .csrf(csfr -> csfr.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(new AntPathRequestMatcher("/auth/register","POST")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/auth/login", "POST")).permitAll()
-                        .requestMatchers(new AntPathRequestMatcher("/swagger-ui/index.html", "GET")).permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers(new AntPathRequestMatcher("/api/**")).authenticated()
+                        .anyRequest().permitAll()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();

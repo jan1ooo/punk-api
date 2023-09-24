@@ -1,9 +1,6 @@
 package br.jan1ooo.punkapi.domain.model.user;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,6 +25,7 @@ public class User implements UserDetails {
 
     @NotEmpty(message = "Username cannot be empty")
     @NotNull(message = "Username cannot be null")
+    @Column(unique = true)
     private String username;
 
     @NotEmpty(message = "Password cannot be empty")
