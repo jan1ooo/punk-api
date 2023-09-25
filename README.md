@@ -1,23 +1,97 @@
 ## Back-end 💻
 
-### 1° Passo é se registrar 
-Acesse o endereço _/auth/register_ e preencha o username e password no JSON.
+### Foi utilizado
+- Spring Boot
+- Gradle
+- Spring Data
+- Punk API
+- H2
+- Spring Security
+- JWT
+- Postman
+- Java 17
+### Instruções
 
-![Registrar](https://user-images.githubusercontent.com/95763551/270189438-6526e94e-6182-4a8e-ba32-85b7001052b1.jpg)
+- Baixar/clonar o projeto;
 
-Após preencher o JSON, envie a requisição POST, caso concluído, receberá um mensagem de confirmação.
+- Use o IntelliJ para executar a aplicação
+
+### 1° Passo é se registrar
+Preencha o username e a password.
+```sh
+POST http://localhost:8080/auth/register
+```
+```sh
+{
+    "username": "",
+    "password": ""
+}
+```
 
 ![Registrar2](https://user-images.githubusercontent.com/95763551/270189521-d379d8f5-a40e-4ee6-a279-8c38dbcdc9c2.jpg)
 
-Se tentar enviar o mesmo JSON mais de uma vez, acontece um erro pois não é permitido criar mais de um usuário com o mesmo username
-
-![Regisrar3](https://user-images.githubusercontent.com/95763551/270189586-c44e3adb-bb56-44a2-85bb-289bc6057158.jpg)
 
 ### 2° Passo é fazer o login
-Acesse o endereço _/auth/login_ e preencha o JSON com o mesmo username e password registrado no 1° passo.
-
-![Login](https://user-images.githubusercontent.com/95763551/270189836-e6f933e0-5ad6-4833-afa9-a27d8899c036.jpg)
-
-Após enviar a requisição POST e o username e password estarem certos, irá retornar um toke e com este token, você irá conseguir acessar os endpoints da aplicação.
-
+Preencha com o mesmo username e password que acabou de criar, você receberá um token como resposta, esse token vai ser a sua autenticação para acessar todos os endpoints, então é necessário copia-lo.
+```sh
+POST http://localhost:8080/auth/login
+```
+```sh
+{
+    "username": "",
+    "password": ""
+}
+```
 ![Login1](https://user-images.githubusercontent.com/95763551/270189871-cdb11b3d-c8d3-4bae-bde8-8b7eaa3a460a.jpg)
+
+## Acessando endpoints
+Todos os endpoinst são protegidos.
+- Para acessar é necessário ter efetuado o login e recebido o token.
+- Vá para a aba Authorization, o tipo do token é Bearer Token e cole o token recebido.
+  
+![Authorization](https://user-images.githubusercontent.com/95763551/270491055-a0d9f808-11d9-49a1-8769-f29a90a5fb48.jpg)
+Todos os endpoins irão partir desse endereço
+- Acessando ele sem, trará apenas as 25 primeiras cervejas.
+```sh
+GET http://localhost:8080/api/beers
+```
+Buscar cervejas com páginação.
+- O page=1 mostra a página que você quer olhar.
+- O per_page=80 é a quantidade de cervejas que mostrará por página.
+- O limite por página é de 80 cervejas
+```sh
+GET http://localhost:8080/api/beers/page=1&per_page=80
+```
+Buscar cerveja por id.
+- id=325 recebe o id da cerveja.
+- Só existem 325 cervejas.
+```sh
+GET http://localhost:8080/api/beers/id=325
+```
+
+Buscar cerveja de forma aletatória.
+- Toda requisição retorna uma cerveja de forma aleatória.
+```sh
+GET http://localhost:8080/api/beers/random
+```
+
+Filtros.
+- Todos os filtros são opcionais e sem eles a API retornará apenas as cervejas em ordem crescente de seu ID.
+- Para acresentar um filtro, basta preencher o nome dele junto do parâmetro na frente.
+- Para vários filtros, necessário acrescentar um _&_ após cada filtro.
+```sh
+GET http://localhost:8080/api/beers/{FILTRO}
+```
+Ex:
+- Retorna as cervejas que foram fabricadas antes de 11-2012
+```sh
+GET http://localhost:8080/api/beers/brewed_before=11-2012
+```
+- Retorna as cervejas que foram fabricadas antes de 11-2012 que contém ABV maior que o número fornecido
+```sh
+GET http://localhost:8080/api/beers/brewed_before=11-2012&abv_gt=6
+```
+# A lista de todos os filtros que podem ser utilizados
+![Filters](https://user-images.githubusercontent.com/95763551/270489629-d0c04d17-5c15-4d14-b5ca-7c7f9468c48a.jpg)
+
+
