@@ -45,7 +45,7 @@ POST http://localhost:8080/auth/login
 ![Login1](https://user-images.githubusercontent.com/95763551/270189871-cdb11b3d-c8d3-4bae-bde8-8b7eaa3a460a.jpg)
 
 ## Acessando endpoints
-Todos os endpoinst são protegidos.
+Todos os endpoints são protegidos.
 - Para acessar é necessário ter efetuado o login e recebido o token.
 - Vá para a aba Authorization, o tipo do token é Bearer Token e cole o token recebido.
   
