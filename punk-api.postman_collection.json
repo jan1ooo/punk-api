@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "645329c2-9e65-4596-ab6b-8dd3edd082e3",
+		"name": "punk-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20790190"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Registrar User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "beer",
+			"item": [
+				{
+					"name": "Paginação",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiZWVycy1hcGkiLCJzdWIiOiJBRE1JTiIsImV4cCI6MTY5NTY4ODQ4N30.jTNaJWNMYbR0Twv6cVcJvkGKlSl7w2nBZcUz9fyM73Y",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/beers/page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"beers",
+								"page=1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiZWVycy1hcGkiLCJzdWIiOiJBRE1JTiIsImV4cCI6MTY5NTY4NjUzNH0.t253maPset287spkleg8Vt35ozDDyV77CC3ALGq9qLY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/beers/id=325",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"beers",
+								"id=325"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Initial",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiZWVycy1hcGkiLCJzdWIiOiJBRE1JTiIsImV4cCI6MTY5NTY4ODAzOH0.Wkw9fcYKDMsQfypjo0u7gQDiqyczB9y34DW2fRmN5Cg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/beers/page=2&per_page=81",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"beers",
+								"page=2&per_page=81"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Random",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiZWVycy1hcGkiLCJzdWIiOiJBRE1JTiIsImV4cCI6MTY5NTY4ODAzOH0.Wkw9fcYKDMsQfypjo0u7gQDiqyczB9y34DW2fRmN5Cg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/beers/random",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"beers",
+								"random"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filters",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiZWVycy1hcGkiLCJzdWIiOiJhZG1pbiIsImV4cCI6MTY5NTY4OTc4NX0.xSAphUF-KR9nQnuUGu8z_K1wXLqw6AY_PR0HNBF8r_c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/beers/brewed_before=11-2012&abv_gt=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"beers",
+								"brewed_before=11-2012&abv_gt=6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

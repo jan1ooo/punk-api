@@ -1,4 +1,7 @@
 package br.jan1ooo.punkapi.domain.dto;
 
-public record AuthenticationDTO(String username, String password) {
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
+public record AuthenticationDTO(@NotNull @NotEmpty String username,@NotNull @NotEmpty String password) {
 }
