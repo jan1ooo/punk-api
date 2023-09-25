@@ -77,7 +77,7 @@ GET http://localhost:8080/api/beers/random
 
 Filtros.
 - Todos os filtros são opcionais e sem eles a API retornará apenas as cervejas em ordem crescente de seu ID.
-- Para acresentar um filtro, basta preencher o nome dele junto do parâmetro na frente.
+- Para acresentar um filtro, basta preencher o nome dele junto do valor na frente.
 - Para vários filtros, necessário acrescentar um _&_ após cada filtro.
 ```sh
 GET http://localhost:8080/api/beers/{FILTRO}
