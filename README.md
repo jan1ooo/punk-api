@@ -51,7 +51,7 @@ Todos os endpoints são protegidos.
   
 ![Authorization](https://user-images.githubusercontent.com/95763551/270491055-a0d9f808-11d9-49a1-8769-f29a90a5fb48.jpg)
 Todos os endpoins irão partir desse endereço
-- Acessando ele sem, trará apenas as 25 primeiras cervejas.
+- Acessando ele sem filtro, trará apenas as 25 primeiras cervejas.
 ```sh
 GET http://localhost:8080/api/beers
 ```
